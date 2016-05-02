@@ -1,13 +1,13 @@
 "use strict";
 
 angular
-    .module('issueTracker.services.auth', [])
-    .factory('usersService', [
+    .module('issueTracker.services.auth-service', [])
+    .factory('authService', [
         '$http',
         '$q',
         'BASE_URL',
         'headersService',
-        function usersService($http, $q, BASE_URL, headerService){
+        function authService($http, $q, BASE_URL, headerService){
             function register(user){
                 var defered = $q.defer();
                 $http.post(BASE_URL + 'api/Account/Register', user)

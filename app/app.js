@@ -3,7 +3,9 @@
 // Declare app level module which depends on views, and components
 angular.module('issueTracker', [
   'ngRoute',
-  'issueTracker.services.auth-service'
+  'issueTracker.services.headerConstructor',
+  'issueTracker.services.auth-service',
+  'issueTracker.controllers.login'
 ])
     .config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/login'});

@@ -1,0 +1,10 @@
+<div id="login">
+    <form class="" name="loginForm">
+        <label for="username">User name:</label>
+        <input type="text" id="username" placeholder="Username" ng-model="loginUser.email" required="required"/>
+        <label for="password">Password:</label>
+        <input type="text" id="password" placeholder="Password" ng-model="loginUser.password" required="required"/>
+        <button type="reset" ng-click="go('/')">Cancel</button>
+        <button type="submit" ng-click="login(loginUser)" ng-disabled="loginForm.$invalid">Login</button>
+    </form>
+</div>
