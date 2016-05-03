@@ -34,9 +34,14 @@ angular
                 return defered.promise;
             }
 
+            function isLoggedIn(){
+                return sessionStorage['currentUser'] != undefined;
+            },
+
             return {
                 register : register,
-                login : login
+                login : login,
+                isLoggedIn : isLoggedIn
             }
         }
     ]);
