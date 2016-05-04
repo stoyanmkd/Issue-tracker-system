@@ -1,24 +1,28 @@
 <!DOCTYPE html>
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="issueTracker" class="no-js"> <!--<![endif]-->
+<html lang="en" ng-app="issueTracker" class="no-js"> <!--<![endif]-->
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Issue tracker</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Issue tracker</title>
+    <script src="app/bower_components/angular/angular.js"></script>
+    <script src="app/bower_components/angular-route/angular-route.js"></script>
+    <script src="app/bower_components/jquery/dist/jquery.js"></script>
+    <script src="app/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="app/bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="app/styles/app.css"/>
 </head>
 <body>
-  <ul class="menu">
-    <li><a href="#/login">login</a></li>
-    <li>You don't have an account? <a href="#/register"> Please register</a></li>
-  </ul>
+    <div navbar class="navbar navbar-default"></div>
 
-  <div ng-view></div>
+<div ng-view></div>
 
 
-  <script src="app/bower_components/angular/angular.js"></script>
-  <script src="app/bower_components/angular-route/angular-route.js"></script>
-  <script src="app/app.js"></script>
-  <script src="app/common/auth-service.js"></script>
-  <script src="app/common/headers-service.js"></script>
-  <script src="app/login/login-controller.js"></script>
+<script src="app/app.js"></script>
+<script src="app/common/authService.js"></script>
+<script src="app/common/headersService.js"></script>
+<script src="app/login/login-controller.js"></script>
+<script src="app/register/register-controller.js"></script>
+<script src="app/logout/logout-controller.js"></script>
+<script src="app/common/navbar-directive.js"></script>
 </body>
 </html>

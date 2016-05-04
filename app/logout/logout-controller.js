@@ -8,10 +8,9 @@ angular
     .controller('LogoutController', [
         '$scope',
         '$location',
-        '$timeout',
-        function ($scope, $location, $timeout){
+        function ($scope, $location){
             $scope.logout = function(){
-                sessionStorage.removeItem('authToken');
+                delete sessionStorage['authToken'];
                 $location.path('/login');
             }
         }]);

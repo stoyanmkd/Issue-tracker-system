@@ -1,10 +1,13 @@
 <div id="login">
-    <form class="" name="loginForm">
-        <label for="username">User name:</label>
-        <input type="text" id="username" placeholder="Username" ng-model="loginUser.email" required="required"/>
-        <label for="password">Password:</label>
-        <input type="text" id="password" placeholder="Password" ng-model="loginUser.password" required="required"/>
-        <button type="reset" ng-click="go('/')">Cancel</button>
-        <button type="submit" ng-click="login(loginUser)" ng-disabled="loginForm.$invalid">Login</button>
+    <h3>Login</h3>
+    <form class="form" name="loginForm">
+        <div class="form-group">
+            <input type="text" id="email" placeholder="Email" ng-model="loginUser.email" class="form-control" required="required"/>
+            <input type="text" id="password" placeholder="Password" ng-model="loginUser.password" class="form-control" required="required"/>
+        </div>
+            <button type="reset" ng-click="go('/')" class="form-control">Cancel</button>
+            <button type="submit" ng-click="login(loginUser)" ng-disabled="loginForm.$invalid" class="form-control">Login</button>
+
     </form>
+    <div ng-if="authService.isLoggedIn()">You are already logged in</div>
 </div>

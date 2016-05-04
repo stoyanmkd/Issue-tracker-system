@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-
-</body>
-</html>
+<div id="register">
+    <h3>Register</h3>
+    <form class="form" name="registerForm">
+        <div class="form-group">
+            <input type="email" id="email" placeholder="Email" ng-model="registerUser.email" class="form-control" required="required"/>
+            <input type="text" id="password" placeholder="Password" ng-model="registerUser.password" class="form-control" required="required"/>
+            <input type="text" id="confirmPassword" placeholder="Confirm password" ng-model="registerUser.confirmPassword"
+                   class="form-control" required="required" compare-to="registerUser.password"/>
+        </div>
+        <button type="reset" ng-click="go('/')" class="form-control">Cancel</button>
+        <button type="submit" ng-click="register(registerUser)" ng-disabled="registerForm.$invalid" class="form-control">Register</button>
+    </form>
+</div>

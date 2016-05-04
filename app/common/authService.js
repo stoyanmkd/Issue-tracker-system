@@ -1,7 +1,7 @@
 "use strict";
 
 angular
-    .module('issueTracker.services.auth-service', [])
+    .module('issueTracker.services.authService', [])
     .factory('authService', [
         '$http',
         '$q',
@@ -35,13 +35,18 @@ angular
             }
 
             function isLoggedIn(){
-                return sessionStorage['currentUser'] != undefined;
-            },
+                return sessionStorage['authToken'] != undefined;
+            }
+
+            function isAnonymous(){
+                return sessionStorage['authToken'] == undefined;
+            }
 
             return {
                 register : register,
                 login : login,
-                isLoggedIn : isLoggedIn
+                isLoggedIn : isLoggedIn,
+                isAnonymous : isAnonymous
             }
         }
     ]);
