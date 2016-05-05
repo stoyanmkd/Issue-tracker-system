@@ -34,6 +34,20 @@ angular
                 return defered.promise;
             }
 
+            function getCurrent() {
+                var deferred = $q.defer();
+                $http.get(BASE_URL + 'users/me/', headerService.getAuthHeader())
+                    .then(function (success) {
+                        deferred.resolve(success.data);
+                        console.log(success.data)
+                    }, function (error) {
+                        deferred.reject(error);
+                        console.log(error)
+                    });
+
+                return deferred.promise;
+            }
+
             function isLoggedIn(){
                 return sessionStorage['authToken'] != undefined;
             }
@@ -46,7 +60,8 @@ angular
                 register : register,
                 login : login,
                 isLoggedIn : isLoggedIn,
-                isAnonymous : isAnonymous
+                isAnonymous : isAnonymous,
+                getCurrent : getCurrent
             }
         }
     ]);

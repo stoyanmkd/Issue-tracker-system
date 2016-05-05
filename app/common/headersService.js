@@ -6,7 +6,7 @@ angular
         function headerConstructor(){
             function getAuthHeader(){
                 return {
-                    headers : {'Authorization:': 'Bearer ' + sessionStorage['authToken']}
+                    headers : {'Authorization': 'Bearer ' + sessionStorage['authToken']}
                 };
             }
 
