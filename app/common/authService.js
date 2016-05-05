@@ -39,13 +39,29 @@ angular
                 $http.get(BASE_URL + 'users/me/', headerService.getAuthHeader())
                     .then(function (success) {
                         deferred.resolve(success.data);
-                        console.log(success.data)
                     }, function (error) {
                         deferred.reject(error);
-                        console.log(error)
                     });
 
                 return deferred.promise;
+            }
+
+            function changePassword(oldPass, newPass, confirmNewPass){
+                if(newPass != confirmNewPass){
+                    console.log('Passwords do not match');
+                }
+
+                var deferred = $q.defer();
+
+                var data = 'OldPassword=' + oldPass + '&NewPassword=' + newPass + '&ConfirmPassword=' + confirmNewPass;
+                $http.post(BASE_URL + 'api/Account/ChangePassword', data, headerService.getAuthAndWWWContentHeader())
+                    .then(function (success){
+                        deferred.resolve(success)
+                    }, function(error){
+                        deferred.reject(error)
+                    });
+
+                    return deferred.promise;
             }
 
             function isLoggedIn(){
@@ -61,7 +77,8 @@ angular
                 login : login,
                 isLoggedIn : isLoggedIn,
                 isAnonymous : isAnonymous,
-                getCurrent : getCurrent
+                getCurrent : getCurrent,
+                changePassword : changePassword
             }
         }
     ]);

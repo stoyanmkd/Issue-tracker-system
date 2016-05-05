@@ -18,19 +18,5 @@ angular
 				.then(function(success){
 					$scope.currentUser = success
 				})
-
-				$scope.changePass = function(){
-					authService.changePassword(
-						$scope.passwordChange.current,
-						$scope.passwordChange.new,
-						$scope.passwordChange.confirm)
-						.then(function (success){
-							notifier.success('Password changed');
-							$route.reload()
-						},
-						function (error){
-							notifier.error(error.statusText)
-						})
-				}
 		}
 	]);

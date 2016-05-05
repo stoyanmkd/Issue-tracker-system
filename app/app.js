@@ -11,10 +11,11 @@ angular.module('issueTracker', [
   'issueTracker.controllers.register',
   'issueTracker.controllers.logout',
   'issueTracker.controllers.profile',
+  'issueTracker.controllers.changePassword',
   'issueTracker.navbarDirective'
 ])
     .config(['$routeProvider', function($routeProvider) {
-    $routeProvider.otherwise({redirectTo: '/login'});
+      $routeProvider.otherwise({redirectTo: '/login'});
 }])
     .constant('BASE_URL', 'http://softuni-issue-tracker.azurewebsites.net/')
     .constant('ISSUES_PER_PAGE', 10);

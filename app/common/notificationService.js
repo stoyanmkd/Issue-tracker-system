@@ -4,21 +4,21 @@ angular
     .module('issueTracker.services.notifier', [])
     .config(['growlProvider',
         function (growlProvider) {
-            growlProvider.globalTimeToLive(4000);
-            // growlProvider.globalInlineMessages(true);
+            growlProvider.globalTimeToLive(300000);
         }])
     .factory('notifier', [
         'growl',
         function (growl) {
+            console.log(growl)
             return {
                 success: function (msg) {
-                    growl.success(msg);
+                    growl.addSuccessMessage(msg);
                 },
                 warning: function (msg) {
-                    growl.warning(msg);
+                    growl.addWarnMessage(msg);
                 },
                 error: function (msg) {
-                    growl.error(msg);
+                    growl.addErrorMessage(msg);
                 }
             }
         }

@@ -41,28 +41,45 @@
     padding: 10px 0;
 }
 
-#login,
-#register {
-    width: 30%;
+#form-login,
+#form-register {
+    width: 20%;
     min-width: 300px;
-    margin: 0 auto;
+    margin: 50px auto 0;
     padding: 20px;
     background-color: #f5f5f5;
     border-radius: 10px;
     border: 1px solid #e5e5e5;
 }
 
-#login input,
-#register input {
+#form-change-password {
+  width: 20%;
+  min-width: 300px;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  border: 1px solid #e5e5e5;
+}
+
+#form-login input,
+#form-register input,
+#form-change-password input {
     margin-bottom: 10px;
 }
 
-#login .form-group,
-#register .form-group {
+#form-login .form-group,
+#form-register .form-group,
+#form-change-password  .form-group {
     margin-bottom: 50px;
 }
 
-#login button,
-#register button {
+#form-login button,
+#form-register button,
+#form-change-password button,
+#form-login a,
+#form-register a,
+#form-change-password a {
     margin-top: 10px;
+    text-align: center;
 }
