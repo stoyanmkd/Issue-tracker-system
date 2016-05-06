@@ -9,27 +9,33 @@
     <script src="app/bower_components/jquery/dist/jquery.js"></script>
     <script src="app/bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="app/bower_components/angular-notify/dist/angular-notify.js"></script>
-    <script src="app/bower_components/angular-growl/build/angular-growl.js"></script>
+
     <link rel="app/bower_components/bootstrap/dist/js/bootstrap.js"/>
     <link rel="stylesheet" href="app/bower_components/bootstrap/dist/css/bootstrap.css"/>
-    <link rel="stylesheet" href="app/bower_components/angular-growl/build/angular-growl.min.css">
+
     <link rel="stylesheet" href="app/styles/app.css"/>
+
+    <script src="app/bower_components/angular-growl/build/angular-growl.js"></script>
+    <link rel="stylesheet" href="app/bower_components/angular-growl/build/angular-growl.min.css">
 </head>
 <body>
     <div navbar class="navbar navbar-default"></div>
 
-<div ng-view></div>
+    <div growl ></div>
+    <div ng-view></div>
 
 
 
 <script src="app/common/authService.js"></script>
 <script src="app/common/headersService.js"></script>
 <script src="app/common/notificationService.js"></script>
+<script src="app/projects/projects-service.js"></script>
 <script src="app/login/login-controller.js"></script>
 <script src="app/register/register-controller.js"></script>
 <script src="app/logout/logout-controller.js"></script>
 <script src="app/profile/profile-controller.js"></script>
 <script src="app/profile/change-password-controller.js"></script>
+<script src="app/projects/projects-controller.js"></script>
 <script src="app/common/navbar-directive.js"></script>
 <script src="app/app.js"></script>
 </body>

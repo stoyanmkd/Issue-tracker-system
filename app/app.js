@@ -7,11 +7,13 @@ angular.module('issueTracker', [
   'issueTracker.services.headerConstructor',
   'issueTracker.services.authService',
   'issueTracker.services.notifier',
+  'issueTracker.services.projects',
   'issueTracker.controllers.login',
   'issueTracker.controllers.register',
   'issueTracker.controllers.logout',
   'issueTracker.controllers.profile',
   'issueTracker.controllers.changePassword',
+  'issueTracker.controllers.projects',
   'issueTracker.navbarDirective'
 ])
     .config(['$routeProvider', function($routeProvider) {

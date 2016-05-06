@@ -1,0 +1,45 @@
+<div class="row">
+    <h3>{{currentProject.Name}}</h3>
+    <div class="col-md-6">
+        <h4>Project Details</h4>
+        <ul>
+            <li>Name: {{currentProject.Name}}</li>
+            <li>Id: {{currentProject.Id}}</li>
+            <li>Key: {{currentProject.ProjectKey}}</li>
+            <li>Description: {{currentProject.Description}}</li>
+            <li>Lead: {{currentProject.Lead.Username}}</li>
+            <li>Priorities: {{currentProject.Priorities }}</li>
+            <li>Labels:
+                <ul>
+                    <li ng-repeat="label in currentProject.Labels">{{label.Name}}</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <h4>Issues List</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Due</th>
+                    <th>Title</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="issue in currentProjectIssues" ng-click="goToOwnIssue(issue.Id)" ng-show="showAll">
+                    <td>{{issue.Id}}</td>
+                    <td>{{issue.DueDate | date:'dd MMM yy'}}</td>
+                    <td>{{issue.Title}}</td>
+                    <td>{{issue.Status.Name}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="btn btn-default" ng-click="toggleShowAll()" ng-hide="ShowAll">Show All</button>
+        <button class="btn btn-default" ng-click="toggleShowAll()" ng-show="ShowAll">Show Mine</button>
+    </div>
+</div>
+<button ng-click="goToEdit()" class="btn btn-default" ng-if="isLead">Edit Issue</button>
+<button ng-click="goToAddIssue()" class="btn btn-default" ng-if="isLead">Add Issue</button>
+<button ng-click="goToDashboard()" class="btn btn-default" ng-if="isLead">Back to Dashboard</button>
