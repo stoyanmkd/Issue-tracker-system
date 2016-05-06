@@ -1,0 +1,47 @@
+<div class="row">
+    <h3>Issue {{currentIssue.Title}}</h3>
+    <div class="col-md-5">
+        <ul>
+            <li>Issue Title: {{currentIssue.Title}}</li>
+            <li>Issue Id: {{currentIssue.Id}}</li>
+            <li>Priority: {{currentIssue.Priority.Name}}</li>
+            <li>Description: {{currentIssue.Description}}</li>
+            <li>Assignee: {{currentIssue.Assignee.Username}}</li>
+            <li>Due Date: {{currentIssue.DueDate | date: 'dd MMM yyyy'}} </li>
+            <li>Project Name: {{currentIssue.Project.Name}}</li>
+            <li>Project Id: {{currentIssue.Project.Id}}</li>
+            <li>Status: {{currentIssue.Status.Name}}</li>
+            <li>Labels:
+                <ul>
+                    <li ng-repeat="label in currentIssue.Labels">{{label.Name}}</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-7">
+        <h4>Comments</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Added</th>
+                    <th>Author</th>
+                    <th>Comment</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="comment in issueComments">
+                    <td class="">{{comment.CreatedOn | date: 'dd MMM yyyy'}}</td>
+                    <td>{{comment.Author.Username}}</td>
+                    <td>{{comment.Text}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<button ng-click="editIssue()" class="btn btn-default" ng-if="isLead">Edit</button>
+<button class="btn btn-default" data-toggle="modal" data-target="#commentModal" ng-if="isAssignee || isLead">Add
+    Comment
+</button>
+<button class="btn btn-default" data-toggle="modal" data-target="#statusModal" ng-if="isAssignee">Change Status</button>
+<button ng-click="backToProject()" class="btn btn-default">< Back to Project</button>
