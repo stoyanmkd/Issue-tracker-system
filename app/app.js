@@ -6,6 +6,7 @@ angular.module('issueTracker', [
   'angular-growl',
   'issueTracker.services.headerConstructor',
   'issueTracker.services.authService',
+  'issueTracker.services.labels',
   'issueTracker.services.notifier',
   'issueTracker.services.projects',
   'issueTracker.services.issues',
@@ -16,11 +17,12 @@ angular.module('issueTracker', [
   'issueTracker.controllers.changePassword',
   'issueTracker.controllers.projects',
   'issueTracker.controllers.issues',
+  'issueTracker.controllers.dashboard',
   'issueTracker.navbarDirective'
 ])
     .config(['$routeProvider', function($routeProvider) {
       //$routeProvider.otherwise({redirectTo: '/login'});
 }])
     .constant('BASE_URL', 'http://softuni-issue-tracker.azurewebsites.net/')
-    .constant('ISSUES_PER_PAGE', 10);
+    .constant('ITEMS_PER_PAGE', 10);
 

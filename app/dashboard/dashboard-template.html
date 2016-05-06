@@ -1,0 +1,68 @@
+<div class="row">
+    <h3>Assigned issues</h3>
+    <div class="col-md-6">
+        <table>
+            <thead>
+                <tr>
+                    <th>Due Date</th>
+                    <th>Name</th>
+                    <th>Status</th>
+                    <th>Project Id</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="assignedIssue in assignedIssues" ng-click="goToIssue(assignedIssue.Id)">
+                    <td>{{assignedIssue.DueDate | date: 'dd MMM yyyy'}}</td>
+                    <td>{{assignedIssue.Title}}</td>
+                    <td>{{assignedIssue.Status.Name}}</td>
+                    <td>{{assignedIssue.Project.Id}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row">
+    <h3>Projects Led</h3>
+    <div class="col-md-6">
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Lead</th>
+                <th>Labels</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="projectLead in projectsLead" ng-click="goToProject(projectLead.Id)">
+                <td>{{projectLead.Name}}</td>
+                <td>{{projectLead.Lead.Username}}</td>
+                <td><span ng-repeat="label in projectLead.Labels">{{label.Name}}</span></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row">
+    <h3>Projects With Assigned Issues</h3>
+    <div class="col-md-6">
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Lead</th>
+                <th>Labels</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="projectIssue in totalProjectsWithAssignedIssues" ng-click="goToProject(projectIssue.Id)">
+                <td>{{projectIssue.Name}}</td>
+                <td>{{projectIssue.Lead.Username}}</td>
+                <td><span ng-repeat="label in projectIssue.Labels">{{label.Name}}</span></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<button class="btn btn-default" ng-click="go('/projects')" ng-show="isAdmin">View All Projects</button>
+<button class="btn btn-default" ng-click="go('/projects/add')" ng-show="isAdmin">Add New Project</button>
+<button class="btn btn-default" ng-click="go('/makeadmin')" ng-show="isAdmin">Make Admin</button>
