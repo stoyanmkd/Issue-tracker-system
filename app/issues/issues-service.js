@@ -87,7 +87,7 @@ angular
                 };
 
                 labels.forEach(function (l){
-                    issues.Labels.push({Name: l})
+                    issue.Labels.push({Name: l})
                 });
 
                 var deferred = $q.defer();
@@ -174,8 +174,8 @@ angular
                 getFiltered: getFiltered,
                 getAssignedToCurrentUser: getAssignedToCurrentUser,
                 getById: getById,
-                add: add,
-                update: update,
+                addIssue: add,
+                updateIssue: update,
                 changeStatus: changeStatus,
                 getComments: getComments,
                 addComment: addComment

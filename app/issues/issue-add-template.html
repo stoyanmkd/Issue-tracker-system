@@ -1,0 +1,48 @@
+<div class="row">
+    <h3>Add new issue</h3>
+    <div class="form">
+        <div class="form-group col-md-4 col-md-offset-4">
+            <select class="form-control" ng-model="issueToAdd.AssigneeId"
+                    ng-options="user as user.Username for user in allUsers track by user.Id">
+                <option value="" selected disabled>Select assignee</option>
+                <option value="user.Id">{{user.Username}}</option>
+            </select>
+        </div>
+
+        <div class="form-group col-md-4 col-md-offset-4">
+            <input class="form-control" type="text" ng-model="addIssueProjectName" placeholder="Project Name"/>
+        </div>
+
+        <div class="form-group col-md-4 col-md-offset-4">
+            <input class="form-control" type="date" ng-model="issueToAdd.DueDate" placeholder="Due Date"/>
+        </div>
+
+        <div class="form-group col-md-4 col-md-offset-4">
+            <select class="form-control" ng-model="issueToAdd.PriorityId">
+                <option value="" selected disabled>Select priority</option>
+                <option value="{{priority.Id}}" ng-repeat="priority in addIssueProjectPriorities">
+                    {{priority.Name}}
+                </option>
+            </select>
+        </div>
+
+        <div class="form-group col-md-4 col-md-offset-4">
+            <input type="text" class="form-control" placeholder="Labels, separated by comma"
+                   ng-model="issueToAdd.Labels"/>
+        </div>
+
+        <div class="form-group col-md-4 col-md-offset-4">
+            <input type="text" class="form-control" ng-model="issueToAdd.Title" placeholder="Issue Title"/>
+        </div>
+
+        <div class="form-group col-md-4 col-md-offset-4">
+            <textarea rows="2" class="form-control" ng-model="issueToAdd.Description"
+                      placeholder="Issue Description"></textarea>
+        </div>
+
+        <div class="form-group col-md-4 col-md-offset-4">
+            <button type="submit" class="btn btn-success" ng-click="addIssue(issueToAdd)">Add Issue</button>
+            <button type="reset" class="btn btn-default" ng-click="backToProject()">Cancel</button>
+        </div>
+    </div>
+</div>
