@@ -21,11 +21,12 @@
             <div class="form-group">
                 <h4>Change current issue status</h4>
                 <select class="form-control" ng-model="newStatus">
+                    <option selected disabled>SELECT</option>
                     <option ng-repeat="availableStatus in currentIssue.AvailableStatuses"
                             value="{{availableStatus.Id}}">{{availableStatus.Name}} </option>
                 </select>
                 <button ng-click="changeStatus()" type="submit" class="btn btn-success">Change Status</button>
-                <button ng-click="clearComment()" class="btn btn-default">Reset</button>
+                <button ng-click="clearStatus()" class="btn btn-default">Reset</button>
             </div>
         </div>
     </div>

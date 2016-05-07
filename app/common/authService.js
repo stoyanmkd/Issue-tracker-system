@@ -34,6 +34,21 @@ angular
                 return defered.promise;
             }
 
+            function getAll() {
+                var deferred = $q.defer();
+                $http.get(BASE_URL + 'users/', headerService.getAuthHeader())
+                    .then(function (success) {
+                        var users = success.data.sort(function (a, b) {
+                            return a.Username.localeCompare(b.Username);
+                        });
+                        deferred.resolve(users);
+                    }, function (error) {
+                        deferred.reject(error);
+                    });
+
+                return deferred.promise;
+            }
+
             function getCurrent() {
                 var deferred = $q.defer();
                 $http.get(BASE_URL + 'users/me/', headerService.getAuthHeader())
@@ -64,6 +79,12 @@ angular
                     return deferred.promise;
             }
 
+            function isAdmin() {
+                getCurrent().then(function (success) {
+                    return success.isAdmin;
+                })
+            }
+
             function isLoggedIn(){
                 return sessionStorage['authToken'] != undefined;
             }
@@ -78,7 +99,9 @@ angular
                 isLoggedIn : isLoggedIn,
                 isAnonymous : isAnonymous,
                 getCurrent : getCurrent,
-                changePassword : changePassword
+                getAll : getAll,
+                changePassword : changePassword,
+                isAdmin : isAdmin
             }
         }
     ]);

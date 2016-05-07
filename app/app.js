@@ -16,6 +16,7 @@ angular.module('issueTracker', [
   'issueTracker.controllers.profile',
   'issueTracker.controllers.changePassword',
   'issueTracker.controllers.projects',
+  'issueTracker.controllers.addProject',
   'issueTracker.controllers.issues',
   'issueTracker.controllers.dashboard',
   'issueTracker.navbarDirective'

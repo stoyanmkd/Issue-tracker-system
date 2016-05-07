@@ -54,11 +54,11 @@ angular
                     Labels : [],
                     LeadId : leadId,
                     Name : name,
-                    Priorites : []
+                    Priorities : []
                 };
 
                 labels.forEach(function (item){
-                    project.Priorites.push({Name : item});
+                    project.Priorities.push({Name : item});
                 });
 
                 var projectKey = '';

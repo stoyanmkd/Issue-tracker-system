@@ -60,6 +60,10 @@ angular
                 $scope.addCommentDescription = null;
             };
 
+            $scope.clearStatus = function(){
+                $scope.newStatus = null;
+            };
+
             $scope.changeStatus = function(){
                 var newStatus = $scope.newStatus;
                 issuesService.changeStatus($routeParams.id, newStatus)

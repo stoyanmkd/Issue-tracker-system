@@ -12,14 +12,21 @@ angular
         '$scope',
         'authService',
         '$location',
-        function Login($scope, authService, $location){
+        'notifier',
+        function Login($scope, authService, $location, notifier){
             $scope.login = function (loginUser){
                 authService.login(loginUser)
                     .then(function (success){
                         sessionStorage['authToken'] = success.data['access_token'];
                         $location.path('/');
+                        authService.getCurrent().then(function (userData) {
+                            notifier.success('Welcome, ' + userData.Username + '!');
+                            sessionStorage['isAdmin'] = userData.isAdmin;
+                            sessionStorage['username'] = userData.Username;
+                            sessionStorage['userId'] = userData.Id;
+                        })
                     }, function (error){
-                        console.log(error)
+                        notifier.error(error.data.error_description)
                     })
             };
         }
