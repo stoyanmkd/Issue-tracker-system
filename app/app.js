@@ -19,6 +19,7 @@ angular.module('issueTracker', [
   'issueTracker.controllers.addProject',
   'issueTracker.controllers.issues',
   'issueTracker.controllers.addIssue',
+  'issueTracker.controllers.editIssue',
   'issueTracker.controllers.dashboard',
   'issueTracker.navbarDirective'
 ])

@@ -102,19 +102,20 @@ angular
             }
 
             //admin //lead
-            function update(title, description, dueDate, projectId, assigneeId, priorityId, labels){
+            function updateIssue(id, title, description, dueDate, assigneeId, priorityId, labels){
                 var issue = {
                     Title : title,
                     Description : description,
                     DueDate : dueDate,
-                    ProjectId : projectId,
                     AssigneeId : assigneeId,
                     PriorityId : priorityId,
                     Labels : []
                 };
 
-                labels.forEach(function (l){
-                    issues.Labels.push({Name: l})
+                var labelsSplitted = labels.split(',');
+
+                labelsSplitted.forEach(function (l){
+                    issue.Labels.push({Name: l.trim()})
                 });
 
                 var deferred = $q.defer();
@@ -175,7 +176,7 @@ angular
                 getAssignedToCurrentUser: getAssignedToCurrentUser,
                 getById: getById,
                 addIssue: add,
-                updateIssue: update,
+                updateIssue: updateIssue,
                 changeStatus: changeStatus,
                 getComments: getComments,
                 addComment: addComment
