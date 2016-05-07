@@ -17,6 +17,17 @@
                 </ul>
             </li>
         </ul>
+        <div class="form">
+            <div class="form-group">
+                <h4>Change current issue status</h4>
+                <select class="form-control" ng-model="newStatus">
+                    <option ng-repeat="availableStatus in currentIssue.AvailableStatuses"
+                            value="{{availableStatus.Id}}">{{availableStatus.Name}} </option>
+                </select>
+                <button ng-click="changeStatus()" type="submit" class="btn btn-success">Change Status</button>
+                <button ng-click="clearComment()" class="btn btn-default">Reset</button>
+            </div>
+        </div>
     </div>
     <div class="col-md-7">
         <h4>Comments</h4>
@@ -36,6 +47,14 @@
                 </tr>
             </tbody>
         </table>
+        <div class="form">
+            <div class="form-group">
+                <h4>Add comment</h4>
+                <textarea class="form-control" rows="2" ng-model="addCommentDescription"></textarea>
+                <button ng-click="addComment()" type="submit" class="btn btn-success">Add comment</button>
+                <button ng-click="clearComment()" class="btn btn-default">Reset</button>
+            </div>
+        </div>
     </div>
 </div>
 

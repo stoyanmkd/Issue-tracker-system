@@ -21,6 +21,7 @@ angular
                 issuesService.getById($routeParams.id)
                     .then(function (success){
                         $scope.currentIssue = success;
+                        console.log(success)
                         $scope.isAssignee = success.Assignee.id == sessionStorage['userId'] && !!sessionStorage['userId'];
                         projectsService.getById(success.Project.Id)
                             .then(function (project){
@@ -53,6 +54,10 @@ angular
                     }, function (error) {
                         notifier.error(error.statusText)
                     })
+            };
+
+            $scope.clearComment = function(){
+                $scope.addCommentDescription = null;
             };
 
             $scope.changeStatus = function(){
