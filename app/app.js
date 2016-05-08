@@ -28,5 +28,5 @@ angular.module('issueTracker', [
       $routeProvider.otherwise({redirectTo: '/'});
 }])
     .constant('BASE_URL', 'http://softuni-issue-tracker.azurewebsites.net/')
-    .constant('ITEMS_PER_PAGE', 10);
+    .constant('ITEMS_PER_PAGE', 5);
 

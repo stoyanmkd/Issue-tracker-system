@@ -12,11 +12,10 @@ angular
         '$scope',
         '$q',
         '$location',
-        'labelsService',
         'projectsService',
         'authService',
         'notifier',
-        function AddProjectController($scope, $q, $location, labelsService, projectsService, authService, notifier){
+        function AddProjectController($scope, $q, $location, projectsService, authService, notifier){
             if(!sessionStorage['authToken'] || !sessionStorage['isAdmin']){
                 $location.path('/login');
             }
@@ -44,7 +43,7 @@ angular
 
                 projectsService.addProject(project.Name, project.Description, project.LeadId.Id, labels, priorities)
                     .then(function (success) {
-                        notifier.success(success.statusText);
+                        notifier.success('Project created successfully');
                         $location.path('/');
                     }, function (error) {
                         notifier.error(error.statusText)

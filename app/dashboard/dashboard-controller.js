@@ -14,9 +14,8 @@ angular
         'issuesService',
         'projectsService',
         'authService',
-        'labelsService',
         'ITEMS_PER_PAGE',
-        function($scope, $location, issuesService, projectsService, authService, labelsService, ITEMS_PER_PAGE){
+        function($scope, $location, issuesService, projectsService, authService, ITEMS_PER_PAGE){
             if(!sessionStorage['authToken']){
                 $location.path('/login');
             }

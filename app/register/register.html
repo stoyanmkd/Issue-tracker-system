@@ -3,8 +3,8 @@
     <form class="form" name="registerForm">
         <div class="form-group">
             <input type="email" id="email" placeholder="Email" ng-model="registerUser.email" class="form-control" required="required"/>
-            <input type="text" id="password" placeholder="Password" ng-model="registerUser.password" class="form-control" required="required"/>
-            <input type="text" id="confirmPassword" placeholder="Confirm password" ng-model="registerUser.confirmPassword"
+            <input type="password" id="password" placeholder="Password" ng-model="registerUser.password" class="form-control" required="required"/>
+            <input type="password" id="confirmPassword" placeholder="Confirm password" ng-model="registerUser.confirmPassword"
                    class="form-control" required="required" compare-to="registerUser.password"/>
         </div>
         <button type="reset" ng-click="go('/')" class="form-control">Cancel</button>

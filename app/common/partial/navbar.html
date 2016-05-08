@@ -3,6 +3,9 @@
         <div class="navbar-header col-md-3">
             <a class="navbar-brand" href="#/">Issue Tracking System</a>
         </div>
+        <ul>
+
+        </ul>
         <ul class="nav navbar-nav col-md-9" ng-show="isLogged()">
             <li>
                 <a href="#/"><i class="glyphicon glyphicon-list-alt"></i> Dashboard</a>
@@ -20,7 +23,7 @@
                         <li>
                             <a href="#/projects/add"><i class="glyphicon glyphicon-plus-sign"></i> Add New Project</a>
                         </li>
-                        <li ng-controller="MakeAdminController" ng-show="isAnAdmin">
+                        <li>
                             <a href="#/makeadmin"><i class="glyphicon glyphicon-star"></i>Make Admin</a>
                         </li>
                     </ul>

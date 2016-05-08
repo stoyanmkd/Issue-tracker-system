@@ -21,7 +21,7 @@ angular
             authService.getAll().then(function (success) {
                 $scope.allUsers = success;
             }, function (error) {
-                console.error(error);
+                console.log(error);
             });
 
             // get issue data

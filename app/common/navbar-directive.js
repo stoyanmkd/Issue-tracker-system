@@ -11,9 +11,6 @@ angular
                     scope.isLogged = function(){
                         return !!sessionStorage['authToken']
                     };
-                    scope.isAnAdmin = function(){
-                        return !!sessionStorage['isAdmin']
-                    }
                 }
             }
         }]);

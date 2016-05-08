@@ -9,7 +9,6 @@ angular
     .factory('notifier', [
         'growl',
         function (growl) {
-            console.log(growl)
             return {
                 success: function (msg) {
                     growl.addSuccessMessage(msg);
