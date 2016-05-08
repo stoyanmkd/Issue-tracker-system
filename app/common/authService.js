@@ -7,7 +7,8 @@ angular
         '$q',
         'BASE_URL',
         'headersService',
-        function authService($http, $q, BASE_URL, headerService){
+        'notifier',
+        function authService($http, $q, BASE_URL, headerService, notifier){
             function register(user){
                 var defered = $q.defer();
                 $http.post(BASE_URL + 'api/Account/Register', user)
@@ -79,6 +80,28 @@ angular
                     return deferred.promise;
             }
 
+            function makeAdmin(userId) {
+                var deferred = $q.defer();
+                getCurrent().then(function (currentUser) {
+                    if (!currentUser.isAdmin) {
+                        notifier.error('Only admins can do that.');
+                        return;
+                    }
+
+                    var data = 'UserId=' + userId;
+                    $http.put(BASE_URL + 'users/makeadmin', data, headerService.getAuthAndWWWContentHeader())
+                        .then(function (success) {
+                            deferred.resolve(success);
+                        }, function (error) {
+                            deferred.reject(error);
+                        });
+                }, function (error) {
+                    console.error(error);
+                });
+
+                return deferred.promise;
+            }
+
             function isAdmin() {
                 getCurrent().then(function (success) {
                     return success.isAdmin;
@@ -101,7 +124,8 @@ angular
                 getCurrent : getCurrent,
                 getAll : getAll,
                 changePassword : changePassword,
-                isAdmin : isAdmin
+                isAdmin : isAdmin,
+                makeAdmin : makeAdmin
             }
         }
     ]);

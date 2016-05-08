@@ -3,6 +3,7 @@
 // Declare app level module which depends on views, and components
 angular.module('issueTracker', [
   'ngRoute',
+  'ui.bootstrap.pagination',
   'angular-growl',
   'issueTracker.services.headerConstructor',
   'issueTracker.services.authService',
@@ -15,6 +16,7 @@ angular.module('issueTracker', [
   'issueTracker.controllers.logout',
   'issueTracker.controllers.profile',
   'issueTracker.controllers.changePassword',
+  'issueTracker.controllers.makeAdmin',
   'issueTracker.controllers.projects',
   'issueTracker.controllers.addProject',
   'issueTracker.controllers.issues',

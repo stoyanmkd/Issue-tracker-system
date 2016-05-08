@@ -37,7 +37,7 @@ angular
                     }, function (error) {
                         console.log(error)
                     });
-            }
+            };
 
             // get all users for the dropdown menu
             authService.getAll().then(function (success) {

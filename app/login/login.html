@@ -6,7 +6,8 @@
             <input type="text" id="password" placeholder="Password" ng-model="loginUser.password" class="form-control" required="required"/>
         </div>
             <button type="reset" ng-click="go('/')" class="form-control">Cancel</button>
-            <button type="submit" ng-click="login(loginUser)" ng-disabled="loginForm.$invalid" class="form-control">Login</button>
+            <button type="submit" ng-click="login(loginUser)" ng-disabled="loginForm.$invalid"
+                    class="form-control btn btn-success">Login</button>
 
     </form>
     <div ng-if="authService.isLoggedIn()">You are already logged in</div>

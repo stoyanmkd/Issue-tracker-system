@@ -21,19 +21,19 @@ angular
                 $location.path('/login');
             }
 
-            $scope.projectParams1 = {
+            $scope.assignedIssuesParams = {
                 'startPage' : 1,
                 'pageSize' : ITEMS_PER_PAGE,
                 'filter' : ''
             };
 
-            $scope.projectParams2 = {
+            $scope.projectsLedParams = {
                 'startPage' : 1,
                 'pageSize' : ITEMS_PER_PAGE,
                 'filter' : ''
             };
 
-            $scope.projectParams3 = {
+            $scope.projectsAssignedIssuesParams = {
                 'startPage' : 1,
                 'pageSize' : ITEMS_PER_PAGE,
                 'filter' : ''
@@ -45,8 +45,8 @@ angular
             $scope.getIssues = function getIssues(){
                 issuesService.getAssignedToCurrentUser(
                     'DueDate desc',
-                    $scope.projectParams1.pageSize,
-                    $scope.projectParams1.startPage)
+                    $scope.assignedIssuesParams.pageSize,
+                    $scope.assignedIssuesParams.startPage)
                     .then(function (success){
                         $scope.assignedIssues = success.Issues;
                         $scope.assignedIssuesTotalNumber = success.TotalCount;
@@ -61,8 +61,8 @@ angular
                     .then(function (currentUserData){
                         $scope.isAdmin = currentUserData.isAdmin;
                         projectsService.getByFilter(
-                            $scope.projectParams2.pageSize,
-                            $scope.projectParams2.startPage,
+                            $scope.projectsLedParams.pageSize,
+                            $scope.projectsLedParams.startPage,
                             'Lead.Username',
                             currentUserData.Username)
                             .then(function (success){
@@ -93,8 +93,8 @@ angular
                 $scope.totalProjectsWithAssignedIssues = [];
                 issuesService.getAssignedToCurrentUser(
                     'DueDate',
-                    $scope.projectParams3.pageSize,
-                    $scope.projectParams3.startPage)
+                    $scope.projectsAssignedIssuesParams.pageSize,
+                    $scope.projectsAssignedIssuesParams.startPage)
                     .then(function(issuesAssigned){
                         //get all isses assigned
                         var uniqueProjectIds = [];

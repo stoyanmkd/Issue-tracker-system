@@ -30,6 +30,22 @@
 
 /**/
 
+h2,h3,h4 {
+    color: #4089ca;
+}
+
+.btn.btn-success {
+    background-color: #4089ca;
+    border-color: #3c81ca;
+    transition: all 0.3s ease-out;
+}
+
+.btn.btn-success:hover {
+    box-shadow: 0 0 2px #55a4ca;
+    background-color: #55a4ca;
+    transition: all 0.3s ease-out;
+}
+
 .navbar-login li span {
     display: inline-block;
     padding-left:  30px;
@@ -81,4 +97,16 @@
 #form-change-password a {
     margin-top: 10px;
     text-align: center;
+}
+
+table.table tr td:hover {
+    cursor: pointer;
+}
+
+.table-title {
+    border-bottom: 2px solid #eee;
+}
+
+.table-title-top {
+    border-top: 2px solid #eee;
 }

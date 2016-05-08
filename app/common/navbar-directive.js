@@ -10,6 +10,9 @@ angular
                 link: function (scope){
                     scope.isLogged = function(){
                         return !!sessionStorage['authToken']
+                    };
+                    scope.isAnAdmin = function(){
+                        return !!sessionStorage['isAdmin']
                     }
                 }
             }
