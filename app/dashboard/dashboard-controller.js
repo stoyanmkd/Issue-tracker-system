@@ -33,12 +33,6 @@ angular
                 'filter' : ''
             };
 
-            $scope.projectsAssignedIssuesParams = {
-                'startPage' : 1,
-                'pageSize' : ITEMS_PER_PAGE,
-                'filter' : ''
-            };
-
             $scope.itemsPerPage = ITEMS_PER_PAGE;
 
             // Panel with all issues assigned to the current user
@@ -87,39 +81,4 @@ angular
             $scope.go = function(path){
                 $location.path(path)
             };
-
-            // Panel with all projects that have issues assigned to the current user
-            $scope.getProjectsWithAssignedIssues = function () {
-                $scope.totalProjectsWithAssignedIssues = [];
-                issuesService.getAssignedToCurrentUser(
-                    'DueDate',
-                    $scope.projectsAssignedIssuesParams.pageSize,
-                    $scope.projectsAssignedIssuesParams.startPage)
-                    .then(function(issuesAssigned){
-                        //get all isses assigned
-                        var uniqueProjectIds = [];
-                        if(issuesAssigned.Issues.length > 0) {
-                            issuesAssigned.Issues.forEach(function (i){
-                                //get the projects ids for issues
-                                uniqueProjectIds[i.ProjectId] = i.Project.Id;
-                            });
-                        }
-
-                        if (uniqueProjectIds){
-                            //get the unique projects
-                            uniqueProjectIds.forEach(function (id){
-                                projectsService.getById(id)
-                                    .then(function (success){
-                                        $scope.totalProjectsWithAssignedIssues.push(success)
-                                    }, function(error){
-                                        console.log(error)
-                                    })
-                            });
-                        }
-                        $scope.totalProjectsIssues = $scope.totalProjectsWithAssignedIssues.count || 0;
-                    }, function(error){
-                        console.log(error)
-                    })
-            };
-            $scope.getProjectsWithAssignedIssues();
         }]);

@@ -10,25 +10,16 @@ angular
                 };
             }
 
-            function getWWWContentHeader(){
-                return {
-                    headers : {'Content-type': 'application/x-www-form-urlencoded'}
-                };
-            }
-
             function getJSONContentHeader(){
                 return {
                     headers : {'Content-type' : 'application/json'}
                 };
             }
 
-            function getAuthAndWWWContentHeader(){
+            function getUrlContentHeader(){
                 return {
-                    headers : {
-                        'Authorization' : 'Bearer ' + sessionStorage['authToken'],
-                        'Content-type': 'application/x-www-form-urlencoded'
-                    }
-                }
+                    headers : {'Content-type': 'application/x-www-form-urlencoded'}
+                };
             }
 
             function getAuthAndJSONContentHeader(){
@@ -40,12 +31,21 @@ angular
                 }
             }
 
+            function getAuthAndUrlContentHeader(){
+                return {
+                    headers : {
+                        'Authorization' : 'Bearer ' + sessionStorage['authToken'],
+                        'Content-type': 'application/x-www-form-urlencoded'
+                    }
+                }
+            }
+
             return {
                 getAuthHeader : getAuthHeader,
-                getWWWContentHeader : getWWWContentHeader,
                 getJSONContentHeader : getJSONContentHeader,
-                getAuthAndWWWContentHeader : getAuthAndWWWContentHeader,
-                getAuthAndJSONContentHeader : getAuthAndJSONContentHeader
+                getUrlContentHeader : getUrlContentHeader,
+                getAuthAndJSONContentHeader : getAuthAndJSONContentHeader,
+                getAuthAndUrlContentHeader : getAuthAndUrlContentHeader
             }
         }
     ]);

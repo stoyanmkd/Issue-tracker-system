@@ -21,7 +21,6 @@ angular
                 issuesService.getById($routeParams.id)
                     .then(function (success){
                         $scope.currentIssue = success;
-                        console.log(success)
                         $scope.isAssignee = success.Assignee.id == sessionStorage['userId'] && !!sessionStorage['userId'];
                         projectsService.getById(success.Project.Id)
                             .then(function (project){

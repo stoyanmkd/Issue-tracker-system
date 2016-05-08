@@ -25,7 +25,7 @@ angular
                 var defered = $q.defer();
                 var data = 'username=' + user.email + '&password=' + user.password +
                     '&grant_type=password';
-                $http.post(BASE_URL + 'api/Token', data, headerService.getWWWContentHeader())
+                $http.post(BASE_URL + 'api/Token', data, headerService.getUrlContentHeader())
                     .then(function(success){
                         defered.resolve(success)
                     }, function(error){
@@ -70,7 +70,7 @@ angular
                 var deferred = $q.defer();
 
                 var data = 'OldPassword=' + oldPass + '&NewPassword=' + newPass + '&ConfirmPassword=' + confirmNewPass;
-                $http.post(BASE_URL + 'api/Account/ChangePassword', data, headerService.getAuthAndWWWContentHeader())
+                $http.post(BASE_URL + 'api/Account/ChangePassword', data, headerService.getAuthAndUrlContentHeader())
                     .then(function (success){
                         deferred.resolve(success)
                     }, function(error){
@@ -89,7 +89,7 @@ angular
                     }
 
                     var data = 'UserId=' + userId;
-                    $http.put(BASE_URL + 'users/makeadmin', data, headerService.getAuthAndWWWContentHeader())
+                    $http.put(BASE_URL + 'users/makeadmin', data, headerService.getAuthAndUrlContentHeader())
                         .then(function (success) {
                             deferred.resolve(success);
                         }, function (error) {

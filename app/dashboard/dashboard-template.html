@@ -1,6 +1,6 @@
 <h2><i class="glyphicon glyphicon-list-alt"></i> Dashboard</h2>
 <div class="row">
-    <h3 class="table-title col-md-10">Assigned issues</h3>
+    <h3 class="table-title col-md-10">My Isuues</h3>
     <div class="col-md-8 col-md-offset-2">
         <table class="table table-striped table-hover table-condensed">
             <thead>
@@ -27,7 +27,7 @@
     </div>
 </div>
 <div class="row">
-    <h3 class="table-title col-md-10">Projects Led</h3>
+    <h3 class="table-title col-md-10">My Projects</h3>
     <div class="col-md-8 col-md-offset-2">
         <table class="table table-striped table-hover table-condensed">
             <thead>
@@ -48,31 +48,6 @@
         <pagination total-items="totalLedProjects" ng-model="projectsLedParams.startPage"
                     items-per-page="itemsPerPage" ng-change="getLedProjects(projectsLedParams.startPage)"
                     ng-if="totalLedProjects > itemsPerPage">
-        </pagination>
-    </div>
-</div>
-<div class="row">
-    <h3 class="table-title col-md-10">Projects With Assigned Issues</h3>
-    <div class="col-md-8 col-md-offset-2">
-        <table class="table table-striped table-hover table-condensed">
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Lead</th>
-                <th>Labels</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="projectIssue in totalProjectsWithAssignedIssues" ng-click="goToProject(projectIssue.Id)">
-                <td>{{projectIssue.Name}}</td>
-                <td>{{projectIssue.Lead.Username}}</td>
-                <td><span ng-repeat="label in projectIssue.Labels">{{label.Name}}</span></td>
-            </tr>
-            </tbody>
-        </table>
-        <pagination total-items="totalProjectsIssues" ng-model="projectsLedParams.startPage"
-                    items-per-page="itemsPerPage" ng-change="getProjectsWithAssignedIssues(projectsAssignedIssuesParams.startPage)"
-                    ng-if="totalProjectsIssues > itemsPerPage">
         </pagination>
     </div>
 </div>

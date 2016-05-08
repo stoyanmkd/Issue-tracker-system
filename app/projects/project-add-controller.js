@@ -29,20 +29,19 @@ angular
 
             $scope.addProject = function(project){
                 // get priorities in proper format
-                var proritiesUnsplited = project.Priorities.split(',');
-                var labelsUnsplited = project.Labels.split(',');
+                var proritiesSplited = project.Priorities.split(',');
+                var labelsSplited = project.Labels.split(',');
                 var priorities = [];
                 var labels = [];
 
-                proritiesUnsplited.forEach(function (p) {
+                proritiesSplited.forEach(function (p) {
                     priorities.push(p.trim())
                 });
 
-                labelsUnsplited.forEach(function (l) {
+                labelsSplited.forEach(function (l) {
                     labels.push(l.trim())
                 });
 
-                console.log(priorities);
                 projectsService.addProject(project.Name, project.Description, project.LeadId.Id, labels, priorities)
                     .then(function (success) {
                         notifier.success(success.statusText);

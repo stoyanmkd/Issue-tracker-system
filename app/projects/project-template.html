@@ -8,7 +8,11 @@
             <li>Key: {{currentProject.ProjectKey}}</li>
             <li>Description: {{currentProject.Description}}</li>
             <li>Lead: {{currentProject.Lead.Username}}</li>
-            <li>Priorities: {{currentProject.Priorities }}</li>
+            <li>Priorities:
+                <ul>
+                    <li ng-repeat="pr in currentProject.Priorities">{{pr.Name}}</li>
+                </ul>
+            </li>
             <li>Labels:
                 <ul>
                     <li ng-repeat="label in currentProject.Labels">{{label.Name}}</li>
@@ -28,7 +32,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="issue in currentProjectIssues" ng-click="goToOwnIssue(issue.Id)" ng-show="showAll">
+                <tr ng-repeat="issue in currentProjectIssues" ng-click="goToOwnIssue(issue.Id)">
                     <td>{{issue.Id}}</td>
                     <td>{{issue.DueDate | date:'dd MMM yy'}}</td>
                     <td>{{issue.Title}}</td>
@@ -36,10 +40,7 @@
                 </tr>
             </tbody>
         </table>
-        <button class="btn btn-default" ng-click="toggleShowAll()" ng-hide="ShowAll">Show All</button>
-        <button class="btn btn-default" ng-click="toggleShowAll()" ng-show="ShowAll">Show Mine</button>
     </div>
 </div>
-<button ng-click="goToEdit()" class="btn btn-default" ng-if="isLead">Edit Issue</button>
 <button ng-click="goToAddIssue()" class="btn btn-default" ng-if="isLead">Add Issue</button>
 <button ng-click="goToDashboard()" class="btn btn-default" ng-if="isLead">Back to Dashboard</button>

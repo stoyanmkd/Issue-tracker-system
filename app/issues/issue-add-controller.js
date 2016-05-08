@@ -19,7 +19,7 @@ angular
         'issuesService',
         function AddIssueController($scope, $location, $routeParams, $q, authService, projectsService, labelsService, issuesService){
             $scope.backToProject = function(){
-                $location.path('/projects' + $routeParams.id)
+                $location.path('/projects/' + $routeParams.id)
             };
 
             $scope.addIssue = function(issueToAdd){
@@ -49,6 +49,7 @@ angular
             // get project name and priorities
             projectsService.getById($routeParams.id)
                 .then(function (success) {
+                    console.log(success.Priorities)
                     $scope.addIssueProjectName = success.Name;
                     $scope.addIssueProjectPriorities = success.Priorities;
                     if (sessionStorage['userId'] != success.Lead.Id) {

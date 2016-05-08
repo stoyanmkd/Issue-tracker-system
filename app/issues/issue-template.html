@@ -1,6 +1,7 @@
 <div class="row">
     <h3>Issue {{currentIssue.Title}}</h3>
     <div class="col-md-5">
+        <h4 class="table-title">Details:</h4>
         <ul>
             <li>Issue Title: {{currentIssue.Title}}</li>
             <li>Issue Id: {{currentIssue.Id}}</li>
@@ -64,7 +65,7 @@
 </div>
 <div class="table-title-top col-md-12">
     <div class="form-group">
-        <button ng-click="editIssue()" class="btn btn-default" ng-if="isLead">Edit</button>
+        <button ng-click="editIssue()" class="btn btn-default" ng-if="isLead">Edit Issue</button>
         <button class="btn btn-default" data-toggle="modal" data-target="#commentModal" ng-if="isAssignee || isLead">
             Add Comment
         </button>

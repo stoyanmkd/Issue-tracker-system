@@ -19,7 +19,8 @@ angular
         'issuesService',
         'projectsService',
         'authService',
-        function ProjectsController($scope, $routeParams, $location, issuesService, projectsService, authService){
+        'ITEMS_PER_PAGE',
+        function ProjectsController($scope, $routeParams, $location, issuesService, projectsService, authService, ITEMS_PER_PAGE){
             $scope.getById = function(){
                 projectsService.getById($routeParams.id)
                     .then(function (success){

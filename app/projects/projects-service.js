@@ -58,7 +58,11 @@ angular
                 };
 
                 labels.forEach(function (item){
-                    project.Priorities.push({Name : item});
+                    project.Labels.push({Name : item});
+                });
+
+                priorities.forEach(function (p) {
+                    project.Priorities.push({Name: p});
                 });
 
                 var projectKey = '';
@@ -67,7 +71,7 @@ angular
                     projectKey += word.charAt(0).toUpperCase();
                 });
                 project.ProjectKey = projectKey;
-
+                console.log(project)
                 var deferred = $q.defer();
                 $http.post(BASE_URL + 'projects/', project, headersService.getAuthAndJSONContentHeader())
                     .then(function (success){
