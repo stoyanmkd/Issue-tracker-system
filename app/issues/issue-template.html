@@ -67,9 +67,6 @@
     <div class="form-group">
         <button ng-click="backToProject()" class="btn btn-default">Back to Project</button>
         <button ng-click="editIssue()" class="btn btn-default" ng-if="isLead">Edit Issue</button>
-        <button class="btn btn-default" data-toggle="modal" data-target="#commentModal" ng-if="isAssignee || isLead">
-            Add Comment
-        </button>
         <button class="btn btn-default" data-toggle="modal" data-target="#statusModal" ng-if="isAssignee">Change Status</button>
     </div>
 </div>
